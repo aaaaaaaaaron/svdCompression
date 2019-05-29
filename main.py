@@ -53,20 +53,11 @@ def compress(U, s, VT, i):
     for i in range(len(U)):
         compressed.append(row)
 
-    # TODO: figure out how to add spectrals together. wtf lol this part shouldn't be so hard.
-    # This is the part that isn't working
-
-
     return addMatricesFromList(spectrals)
     # return compressed
 
 def addMatricesFromList(list):
     totalSum = zeros((len(list[0]), len(list[0][0])))
-    # row = []
-    # for i in range(len(list[0][0])):
-    #     row.append(0)
-    # for i in range(len(list[0])):
-    #     sum.append(row)
 
     for matrix in list:
         totalSum = add(totalSum, matrix)
@@ -114,7 +105,7 @@ def multiply(s, u, v):
 
 if __name__ == "__main__":
 
-    originalEiffel = Picture("eiffel.jpg")
+    originalEiffel = Picture("minneapolis.jpg")
     eiffelMatrix = turnIntoMatrix(originalEiffel)
     eiffelPic = turnIntoPicture(eiffelMatrix)
     actualEiffelMatrix = array(eiffelMatrix)
@@ -125,8 +116,6 @@ if __name__ == "__main__":
     compressedMatrix = compress(U, s, VT, 25)
     compressedPhoto = turnIntoPicture(compressedMatrix)
     compressedPhoto.show()
-
-    # TODO: figure out how to add spectrals together. wtf lol this part shouldn't be so hard.
 
     # betterCompressedMatrix = compress(U, s, VT, 3)
     # for row in betterCompressedMatrix:
